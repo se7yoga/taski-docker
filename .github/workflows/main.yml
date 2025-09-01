@@ -40,6 +40,12 @@ jobs:
         pip install -r ./backend/requirements.txt
     # Запускаем flake8
     - name: Test with flake8 and django tests
+      env:
+        POSTGRES_USER: django_user
+        POSTGRES_PASSWORD: django_password
+        POSTGRES_DB: django_db
+        POSTGRES_HOST: 127.0.0.1
+        POSTGRES_PORT: 5432
       # Вызываем flake8 и указываем ему,
       # что нужно проверить файлы только в папке backend/
       run: |
